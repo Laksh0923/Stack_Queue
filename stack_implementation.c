@@ -23,18 +23,52 @@ int isFull(struct stack *ptr){
     }
 }
 
+void push(struct stack *ptr, int val){
+    if(isFull(ptr)){
+        printf("Stack is overflow, cannot push %d to the stack!\n", val);
+    }else{
+        ptr->top++;
+        ptr->arr[ptr->top] = val;
+    }
+}
+
+int pop(struct stack *ptr){
+    if(isEmpty(ptr)){
+        printf("Stack is underflow, cannot pop from the stack!\n");
+        return -1;
+    }
+    else{
+        int val = ptr->arr[ptr->top];
+        ptr->top--;
+        return val;
+    }
+}
+
 int main(){
     struct stack *s;
     s->size = 6;
     s->top = -1;
     s->arr = (int *)malloc (s->size * sizeof(int));
     
-    
-    if(isEmpty(s)){
-        printf("The stack is empty");
-    }else{
-        printf("The stack is not empty");
-    }
+    printf("Before pushing, full : %d\n", isFull(s));
+    printf("Before pushing, empty : %d\n", isEmpty(s));
+    push(s, 3);
+    push(s, 4);
+    push(s, 5);
+    push(s, 6);
+    push(s, 7);
+    push(s, 8);
+    //push(s, 8);  --> Stack overflow
+    printf("After pushing, full : %d\n", isFull(s));
+    printf("After pushing, empty : %d\n", isEmpty(s));
+
+    printf("Popped %d from the stack\n", pop(s));
+    printf("Popped %d from the stack\n", pop(s));
+    printf("Popped %d from the stack\n", pop(s));
+    printf("Popped %d from the stack\n", pop(s));
+    printf("Popped %d from the stack\n", pop(s));
+    printf("Popped %d from the stack\n", pop(s));
+    //printf("Popped %d from the stack\n", pop(s));  --> Stack underflow
 
     return 0;
 }
