@@ -17,9 +17,9 @@ int isEmpty(struct stack *ptr){
 
 int isFull(struct stack *ptr){
     if(ptr->top == ptr->size - 1){
-        return 1;
+        return 1;      //  1 means true
     }else{
-        return 0;
+        return 0;     //   0 means false
     }
 }
 
