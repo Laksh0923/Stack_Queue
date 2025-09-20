@@ -45,7 +45,7 @@ int pop(struct stack *ptr){
 }
 
 int main(){
-    struct stack *s;
+    struct stack *s = (struct stack *)malloc(sizeof(struct stack));
     s->size = 6;
     s->top = -1;
     s->arr = (int *)malloc (s->size * sizeof(int));
@@ -69,6 +69,12 @@ int main(){
     printf("Popped %d from the stack\n", pop(s));
     printf("Popped %d from the stack\n", pop(s));
     //printf("Popped %d from the stack\n", pop(s));  --> Stack underflow
+
+    free(s);
+    s = NULL;
+
+    free(s->arr);
+    s->arr = NULL;
 
     return 0;
 }

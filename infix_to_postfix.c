@@ -98,5 +98,11 @@ char *infixToPostfix(char *infix){
 int main(){
     char *infix = "a-b+c/t";
     printf("Postfix : %s", infixToPostfix(infix));
+
+    free(infix);      // releases the allocated memory
+    infix = NULL;     // (optional, but prevents dangling pointer issues)
+
     return 0;
+
+    
 }

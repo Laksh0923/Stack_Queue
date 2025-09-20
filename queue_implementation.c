@@ -72,5 +72,8 @@ int main(){
     printf("Value removed : %d\n", dequeue(&q));
     printf("Value removed : %d\n", dequeue(&q));
     printf("Value removed : %d\n", dequeue(&q));   // return -1 means : no element to remove from queue
+
+    free(q.arr);      // releases the allocated memory
+    q.arr = NULL;     // (optional, but prevents dangling pointer issues)
     return 0;
 }

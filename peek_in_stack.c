@@ -70,5 +70,11 @@ int main(){
     for(int j=1; j<=s->top+1; j++){
         printf("The value at index %d is %d\n", j, peek(s, j));
     }
+
+    free(s);      // releases the allocated memory
+    s = NULL;     // (optional, but prevents dangling pointer issues)
+
+    free(s->arr);      // releases the allocated memory
+    s->arr = NULL;     // (optional, but prevents dangling pointer issues)
     return 0;
 }
