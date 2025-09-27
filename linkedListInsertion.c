@@ -82,8 +82,9 @@ int main(){
     //head = insertAtFirst(head, 10);   // For case 1
     // head = insertAtIndex(head, 10 ,1); // For case 2
     //head = insertAtEnd(head, 10);  // For case 3
-    head = insertAfterNode(head, second, 10);
+    head = insertAfterNode(head, second, 10);  // For case 4
     printf("\n");
     linkedListTraversal(head);
+
     return  0;
 }
